@@ -1,38 +1,28 @@
-if &compatible
-  set nocompatible
+let s:dein_dir = expand('~/.cache/dein')
+
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+
+"  let g:dein#types#git#default_protocol = 'ssh'
+
+if &runtimepath !~# '/dein.vim'
+  if !isdirectory(s:dein_repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+  endif
+  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
 endif
-set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
-let g:dein#types#git#default_protocol = 'ssh'
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
 
-call dein#begin(expand('~/.vim/dein'))
+  let g:rc_dir    = expand('~/.vim/rc')
+  let s:toml      = g:rc_dir . '/dein.toml'
+  let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
 
-call dein#add('Shougo/dein.vim')
-call dein#add('Shougo/vimproc.vim', {'build': 'make'})
+  call dein#load_toml(s:toml,      {'lazy': 0})
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
 
-call dein#add('Shougo/neocomplete.vim')
-call dein#add('Shougo/neomru.vim')
-call dein#add('Shougo/neosnippet')
-
-call dein#add('scrooloose/nerdtree')
-call dein#add('jistr/vim-nerdtree-tabs')
-call dein#add('Xuyuanp/nerdtree-git-plugin')
-call dein#add('airblade/vim-gitgutter')
-call dein#add('bronson/vim-trailing-whitespace')
-call dein#add('Yggdroot/indentLine')
-call dein#add('thinca/vim-quickrun')
-call dein#add('tyru/caw.vim')
-call dein#add('tyru/open-browser.vim')
-call dein#add('rhysd/accelerated-jk')
-call dein#add('edkolev/tmuxline.vim')
-call dein#add('tpope/vim-fugitive')
-call dein#add('Shougo/neocomplete.vim')
-call dein#add('Shougo/neosnippet.vim')
-call dein#add('Shougo/neosnippet-snippets')
-call dein#add('tpope/vim-endwise')
-call dein#add('Townk/vim-autoclose')
-
-call dein#end()
-
+  call dein#end()
+  call dein#save_state()
+endif
 
 if dein#check_install()
   call dein#install()

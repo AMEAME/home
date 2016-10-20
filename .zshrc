@@ -1,7 +1,7 @@
 source ~/.bash_profile
 
 ### zsh-completions の読込み
-fpath=(~/zsh_plugins/zsh-completions/src $fpath)
+fpath=(~/.zsh_plugins/zsh-completions/src $fpath)
 
 ### emacs 風キーバインド
 bindkey -e
@@ -162,7 +162,7 @@ setopt always_last_prompt  # 無駄なスクロールを避ける
 REPORTTIME=3
 
 ### zaw
-source ~/zsh_plugins/zaw/zaw.zsh
+source ~/.zsh_plugins/zaw/zaw.zsh
 bindkey '^[d' zaw-cdr
 bindkey '^[g' zaw-git-branches
 bindkey '^[@' zaw-gitdir
@@ -220,7 +220,7 @@ alias gdb='gdb -q'
 alias amend='git commit -a --amend && git push -f'
 
 # zsh 用のシンタックスハイライト
-source ~/zsh_plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh_plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # markdownをw3mで見る
 ress() {
