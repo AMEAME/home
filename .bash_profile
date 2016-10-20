@@ -8,5 +8,5 @@ eval "$(pyenv init -)"
 
 export NVM_DIR="$HOME/.nvm"
 
-alias rn='[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" ] && npm'
+alias rn='[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" ]'
 
