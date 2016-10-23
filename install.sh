@@ -38,5 +38,5 @@ if [ ! -f ~/.vimrc ]; then
 fi
 
 if [ ! -d ~/.vim ]; then
-    cp -R .vim ~/.vim
+    cp -r .vim ~/.vim
 fi
